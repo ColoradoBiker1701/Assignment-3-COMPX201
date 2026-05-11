@@ -55,31 +55,21 @@ public class RecordHashTable {
             if (storedRecord.getTitle().equals(r.getTitle())) {
                 return true;
             }
-            //Keep moving till you find a empty slot after checking
+            //Keep moving till you find an empty slot after checking
             index = (index + 1) % hashTable.length;
         }
         //If not contained return false
         return false;
     }
 
+    //Already maintain size in put so just return size
     public int size() {
-
-        int size = 0;
-
-        //Get starting index
-        int index = hashFunction(r);
-
-        //loop to the end of the list
-        while(hashTable[index] != null) {
-            //add to size till end of list
-            size++;
-
-            //Keep moving till you find a empty slot after checking
-            index = (index + 1) % hashTable.length;
-        }
-        //after looping through whole hashTable index return size as int
         return size;
+    }
 
+    //Check if empty and if so return true, else false. 
+    public boolean isEmpty() {
+        return size == 0;
     }
 
 }
